@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/wizard.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+
+<body>
+  <form autocomplete="on" id="regForm" action="/action_page.php">
+    <h1>Register:</h1>
+    <div class="text-center">
+      <div style="margin: auto;" class="progress center-block" style="width:200px;">
+        <!-- set to certain width -->
+        <div id="bar" class="progress-bar progress-bar-striped bg-success active" role="progressbar" style="width: 0%;">
+          <span id="pt">
+            0%
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- One "tab" for each step in the form: -->
+    <div class="tab">Name:
+      <p><input class="autocomplete" id="fname" autocomplete="cc-number" placeholder="First name..."
+          oninput="this.className = ''" name="fname"></p>
+      <p><input id="lname" placeholder="Last name..." oninput="this.className = ''" name="lname"></p>
+    </div>
+    <div class="tab">Contact Info:
+      <p><input id="email" placeholder="E-mail..." oninput="this.className = ''" name="email"></p>
+      <!-- <p class="input-group"><span class="input-group-text">+91</span> -->
+      <!-- <input type="number" placeholder="Phone" id="phone" class="form-control"> -->
+      <div>
+        <input id="phone" type="tel" name="phone" />
+      </div>
+    </div>
+    <div class="tab">Address::
+      <p>
+        <input id="state" placeholder="State" oninput="this.className = ''" name="email">
+      </p>
+      <p>
+        <input id="city" placeholder="City" oninput="this.className = ''" name="email">
+      </p>
+      <p><input id="address" placeholder="Street" oninput="this.className = ''" name="street"></p>
+    </div>
+    <div class="tab">Login Info:
+      <p><input id="username" placeholder="Username..." oninput="this.className = ''" name="uname"></p>
+      <p><input id="pass" placeholder="Password..." oninput="this.className = ''" name="pword" type="password"></p>
+    </div>
+    <div style="overflow:auto;">
+      <div style="float:right;">
+        <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+        <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+      </div>
+    </div>
+    <!-- Circles which indicates the steps of the form: -->
+    <div style="text-align:center;margin-top:40px;">
+      <span class="step"></span>
+      <span class="step"></span>
+      <span class="step"></span>
+      <span class="step"></span>
+    </div>
+  </form>
+  <div id="snackbar"></div>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+
+  <script src="javascript/wizard.js"></script>
+</body>
+
+</html>
