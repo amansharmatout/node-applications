@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../public/css/common.css">
+  </head>
+
+  <body>
+    <h2>Login Form for Employee</h2>
+
+    <form method="POST" action="/login">
+      <div class="container">
+        <label for="uname"><b>Username</b></label>
+        <input
+          id="name"
+          type="text"
+          placeholder="Enter Username"
+          name="uname"
+          required
+        />
+
+        <label for="psw"><b>Password</b></label>
+        <input
+          id="pass"
+          type="password"
+          placeholder="Enter Password"
+          name="psw"
+          required
+        />
+
+        <button type="submit">Login</button>
+      </div>
+    </form>
+    <div class="container text-center">
+      <a href="/login.html">View attendance</a>
+    </div>
+    <div class="container text-center">
+      <a href="/admin_login.html">Login as Admin</a>
+    </div>
+  </body>
+</html>
