@@ -292,7 +292,6 @@ crossorigin="anonymous"></script>
       req.on("data", async function (data) {
         data = data.toString();
         data = data.split("=")[1];
-        console.log("beafore");
         db.get_all.then(async (result) => {
           let jsonArray = [];
           for (let index = 0; index < result.length; index++) {
