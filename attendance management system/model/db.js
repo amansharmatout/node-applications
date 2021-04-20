@@ -16,7 +16,7 @@ let create_attendance = (attnd) => {
 };
 let create = (user) => {
   return new Promise(function (resolve, reject) {
-      console.log(user,'here');
+    console.log(user, "here");
     MongoClient.connect(url, (err, db) => {
       if (err) console.log(err);
       var dbo = db.db("Employees");
@@ -48,7 +48,7 @@ let logout = (user) => {
     MongoClient.connect(url, (err, db) => {
       if (err) console.log(err);
       var dbo = db.db("Employees");
-      get_one({name:user.name,password:user.password}).then(
+      get_one({ name: user.name, password: user.password }).then(
         (success) => {
           dbo
             .collection("Attendance")
@@ -86,11 +86,19 @@ let get_attendance = async (id) => {
       if (err) console.log(err);
       var dbo = db.db("Employees");
       dbo
-        .collection("Employees")
-        .findOne({ emp_id: id })
-        .toArray(function (err, result) {
-          if (err) reject(err);
-          db.close();
+        .collection("Attendance")
+        .aggregate([
+          {
+            $lookup: {
+              from: "Employees",
+              localField: "emp_id",
+              foreignField: "_id",
+              as: "employee",
+            },
+          },
+        ])
+        .toArray((err, result) => {
+          if (err || result == null) reject(err);
           resolve(result);
         });
     });
@@ -103,10 +111,35 @@ let update = async (user, set) => {
       if (err) console.log(err);
       var dbo = db.db("Employees");
       dbo.collection("Employees").updateOne(user, set, (err, succ) => {
-        if (err) reject(err);
+        if (err || succ == null) reject(err);
         console.log(err, succ);
         resolve(succ);
       });
+    });
+  });
+};
+let get_attendance_by_user = (id) => {
+  return new Promise(function (resolve, reject) {
+    MongoClient.connect(url, (err, db) => {
+      if (err) console.log(err);
+      var dbo = db.db("Employees");
+      dbo
+        .collection("Attendance")
+        .aggregate([
+          { $match: { emp_id: { $eq: id } } },
+          {
+            $lookup: {
+              from: "Employees",
+              localField: "emp_id",
+              foreignField: "_id",
+              as: "employee",
+            },
+          }]
+        )
+        .toArray((err, result) => {
+          if (err || result == null) reject(err);
+          resolve(result);
+        });
     });
   });
 };
@@ -118,4 +151,5 @@ module.exports = {
   create,
   create_attendance,
   logout,
+  get_attendance_by_user,
 };

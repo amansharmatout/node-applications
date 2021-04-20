@@ -1,6 +1,7 @@
 const http = require("http");
 const express = require("express");
 const app = express();
+const path=require('path')
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const routes = require("./routes/index");
@@ -9,6 +10,7 @@ app.use(bodyParser.json());
 require('dotenv').config({path:'variables.env'});
 const dotenv = require('dotenv');
 dotenv.config();
+app.use(express.static(__dirname + '/public'));
 app.use(
   session({
     secret: 'Ssdsd@#e$#Rfe@#$d#$#',

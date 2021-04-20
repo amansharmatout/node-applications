@@ -17,7 +17,7 @@ body {
   }
 
   button {
-    background-color: #4caf50;
+    background-color: rgb(57, 57, 235);
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -65,4 +65,8 @@ body {
     .cancelbtn {
       width: 100%;
     }
+  }
+  a{
+    text-decoration: none;
+    color: #f1f1f1;
   }
