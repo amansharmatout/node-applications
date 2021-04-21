@@ -1,41 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="/css/common.css">
-  </head>
+</head>
 
-  <body>
-    <h2>Login Form for Employee</h2>
+<body>
+    <h2>Login Form</h2>
 
-    <form method="POST" action="/login">
-      <div class="container">
-        <label for="name"><b>Username</b></label>
-        <input
-          id="name"
-          type="text"
-          placeholder="Enter Username"
-          name="name"
-          required
-        />
+    <form method="POST" action="/all_attendance">
+        <div class="container">
+            <label for="name"><b>Username</b></label>
+            <input id="name" type="text" placeholder="Enter Username" name="name" required />
 
-        <label for="password"><b>Password</b></label>
-        <input
-          id="pass"
-          type="password"
-          placeholder="Enter Password"
-          name="password"
-          required
-        />
+            <label for="password"><b>Password</b></label>
+            <input id="pass" type="password" placeholder="Enter Password" name="password" required />
 
-        <button type="submit">Login</button>
-      </div>
+            <button type="submit">Login</button>
+        </div>
     </form>
     <div class="container text-center">
-      <a href="/login.html">View attendance</a>
+        <a href="/login.html">View attendance</a>
     </div>
     <div class="container text-center">
-      <a href="/admin_login.html">Login as Admin</a>
+        <a href="/admin_login.html">Login as Admin</a>
     </div>
-  </body>
+</body>
+
 </html>
