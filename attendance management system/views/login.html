@@ -1,38 +1,37 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="/css/common.css">
-  </head>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="/css/common.css" />
+	</head>
 
-  <body>
-    <div>
-      <h2>Login to view  Attendance</h2>
-    </div>
+	<body>
+		<div>
+			<h2>Login to view Attendance</h2>
+		</div>
 
-    <form method="POST" action="/user/attendance">
-      <div class="container">
-        <label for="name"><b>Username</b></label>
-        <input
-          id="name"
-          type="text"
-          placeholder="Enter Username"
-          name="name"
-          required
-        />
+		<form method="POST" action="/user/attendance">
+			<div class="container">
+				<label for="name"><b>Username</b></label>
+				<input
+					id="name"
+					type="text"
+					placeholder="Enter Username"
+					name="name"
+					required
+				/>
 
-        <label for="password"><b>Password</b></label>
-        <input
-          id="pass"
-          type="password"
-          placeholder="Enter Password"
-          name="password"
-          required
-        />
+				<label for="password"><b>Password</b></label>
+				<input
+					id="pass"
+					type="password"
+					placeholder="Enter Password"
+					name="password"
+					required
+				/>
 
-        <button type="submit">View Attendance</button>
-      </div>
-      
-    </form>
-  </body>
+				<button type="submit">View Attendance</button>
+			</div>
+		</form>
+	</body>
 </html>
