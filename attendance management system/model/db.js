@@ -32,6 +32,7 @@ let get_one = async user => {
 	return new Promise(function (resolve, reject) {
 		MongoClient.connect(url, (err, db) => {
 			if (err) console.log(err);
+      console.log(user);
 			var dbo = db.db("Employees");
 			dbo.collection(`Employees`).findOne(user, (err, success) => {
 				if (err || success == null) {

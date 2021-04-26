@@ -488,6 +488,7 @@ router.post("/all_attendance", (req, res) => {
 	user = req.body;
 	db.get_one(req.body).then(
 		result => {
+      console.log(result);
 			if (result.role == 1) {
 				db.get_attendance().then(
 					success => {
@@ -559,7 +560,8 @@ crossorigin="anonymous"></script>
 						res.end();
 					},
 					err => {
-						res.end("error..." + err);
+            res.writeHead(404, { "Content-type": "text/html" });
+						res.end("Attendance Not Found");
 					},
 				);
 			} else {
@@ -616,13 +618,13 @@ crossorigin="anonymous"></script>
 						res.end();
 					},
 					err => {
-						res.end("error..." + err);
+						res.end("Attendance Not Found");
 					},
 				);
 			}
 		},
 		err => {
-			res.end("error..." + err);
+			res.end("User not found");
 		},
 	);
 });
@@ -714,8 +716,14 @@ router.post("/get_email", (req, res) => {
 				});
 		},
 		err => {
-			res.end("error " + err);
+			res.end("Not Found ");
 		},
 	);
 });
 module.exports = router;
+/*
+
+use Employees;
+db.Employees.insertOne({name:"varun",password:"123456",role:1});
+
+*/

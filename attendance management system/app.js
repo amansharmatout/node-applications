@@ -36,5 +36,6 @@ app.use(
 app.use(routes);
 
 app.listen(5000, () => {
+  debugger;
 	console.log("Server is up and running");
 });
