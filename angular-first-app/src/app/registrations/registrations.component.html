@@ -1,4 +1,4 @@
-<p>registrations works!</p>
+<!-- <p>registrations works!</p>
 <form action="get">
   <div class="form-group">
     <label for="name">Username</label>
@@ -39,4 +39,17 @@
     <b>{{months | slice:2:6}}</b>  
     // here 2 and 6 refers to the start and the end index  
   </div>  
-</div>   
+</div>    -->
+<div class="container">
+  <app-add-todo (addTodo)="TodoAdd($event)"></app-add-todo>
+  <h4>Your Todo List</h4>
+  <div *ngIf="this.todos.length==0; else elseBlock">Your Todo List is Empty. Please add some todo work.</div>
+<ng-template #elseBlock>
+  <div *ngFor="let todo of todos; index as i"
+  >
+  <app-todo-item [i]="i" (todoCheck)="checkToDo($event)"
+    [todo]='todo' (todoDelete)="deleteTodo($event)">
+  </app-todo-item>
+</div>
+</ng-template>
+</div>
