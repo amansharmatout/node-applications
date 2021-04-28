@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Todo } from '../Todo';
 
 @Component({
@@ -14,7 +15,7 @@ export class AddTodoComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
-  onSubmit() {
+  onSubmit(form?: NgForm) {
     const todo = {
       sno: Math.floor(Math.random() * 100 + 1),
       title: this.title,
@@ -22,5 +23,6 @@ export class AddTodoComponent implements OnInit {
       active: true,
     };
     this.addTodo.emit(todo);
+    form.reset();
   }
 }

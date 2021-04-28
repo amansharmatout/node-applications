@@ -1,6 +1,6 @@
 <div class="container my-3">
   <h4>Add a Todo</h4>
-  <form (ngSubmit)="onSubmit()">
+  <form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
     <div class="form-group">
       <label for="title">Title</label>
       <input
